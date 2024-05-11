@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .pading-custom {
+       @apply p-4 xl:px-24 lg:p-12 md:p-8 sm:p-4
+    }
+}

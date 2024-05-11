@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hi smile</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap');
+    </style>
+    <link rel="stylesheet" href="./css/output.css"></head>
+    
+</head>
+<body class=" flex justify-center">
+ 
+    <main class=" w-[1470px] sm::w-auto bg-[#8F75C1]" x-data="showModal()" >
+        <header class="flex justify-between pading-custom">
+            <logo> <a href="#"><span class=" text-white text-xl">hismile</span></a></logo>
+            <nav>
+                <ul class=" flex gap-4 text-white lg:text-base ">
+                    <li class=" text-base hidden  lg:block"><a href="#">Descoperă</a></li>
+                    <li class=" text-base hidden  lg:block"><a href="#">Recomandări</a></li>
+                    <li class=" text-base hidden  lg:block"><a href="#">Întrebări frecvente</a></li>
+                    <div x-data="languageSelector()" class="relative">
+                        <button @click="toggleDropdown()" class="px-4 py-1 rounded-[6rem]  flex gap-2 items-center bg-[#ba98f980]">
+                            <img class="w-5 h-5" x-bind:src="selectedFlag" alt="selected flag"> <!-- Utilizăm x-bind pentru a actualiza dinamic calea către imaginea steagului -->
+                            <span x-text="selectedLanguage"></span>
+                            <img src="./image/chevronRight.png" alt="chevron">
+                        </button>
+                        <div x-show="dropdownOpen" @click.away="closeDropdown" class="absolute top-full left-0 mt-1 w-40 bg-white border rounded-md shadow-md text-[#ba98f980]">
+                            <a @click="setLanguage('Română')" class="block px-4 py-2 cursor-pointer hover:bg-[#e5d6ff80]">Română</a>
+                            <a @click="setLanguage('Русский')" class="block px-4 py-2 cursor-pointer hover:bg-gray-100">Русский</a>
+                        </div>
+                    </div>
+                </ul>
+            </nav>
+        </header>
+        
+        <section  id="hero" class="flex text-white lg:flex-row lg:justify-between lg:mt-0 lg:pt-8 sm:flex-col sm:justify-center sm:mt-24 pading-custom">
+            <div  id="content" class="flex lg:items-start lg:gap-4 sm:flex-col sm:justify-center sm:items-center "> 
+                <header class="flex flex-col font-bold lg:text-6xl lg:items-start sm:items-center  sm:text-4xl sm:text-center ">
+                    <h1 class="  ">Experiența  </h1>
+                    <h1 class=" lg:text-start md:w-auto sm:w-72">înălbirii instante</h1>
+                </header>
+                <p class=" text-center lg:text-start md:w-auto sm:w-72" >
+                    Descoperă secretul unui zâmbet strălucitor <br class=" ">
+                    și luminos în doar câteva săptămâni!
+                </p>
+                
+                <button @click="toggle"   class=" text-base font-bold  bg-black rounded-[100px] lg:px-6 lg:py-8 lg:mt-0 sm:py-6 sm:px-6 sm:mt-4" >
+                    Transformă zâmbetul
+                </button>
+            </div>
+            <div  id="image" class=" hidden  lg:flex lg:-mb-20  shadow-[100px_200px_1000px_1px_#8F75C1]">
+                <img class=" h-[30rem] -mb-[7rem]  xl:h-[40rem] xl:-mb-[11rem] "  src="./image/product.png" alt="product">
+            </div>
+        </section>
+
+        <section  id="descriprion" class=" flex flex-col justify-between  bg-white w-[100%]  pading-custom 2xl:pt-10  xl:pt-20 lg:gap-8 lg:pt-2 sm:gap-4">
+            <header class="font-bold 2xl:text-6xl xl:text-[2.4rem] sm:text-3xl">
+                <h3 class=" ">
+                    Descoperă <span class=" text-[#8F75C1]">v34</span> – secretul <br class="hidden lg:block"> tău pentru a străluci
+                </h3>
+            </header>
+            <div class="flex justify-between lg:gap-10 lg:flex-row lg:items-center lg:pt-10 sm:flex-col sm:gap-6">
+                <div class=" xl:w-[55%] lg:w-[60%] h-[100%]">
+                    <img class="rounded-2xl lg:w-[772px]  lg:h-[25rem] sm:w-[100%] md:h-80 " src="/image/client.png" alt="client">
+                </div>
+                <div class=" flex  lg:w-[35%]  sm:flex-col sm:gap-6">
+                    <div id="whatWeSolve">
+                    <h3 class=" text-2xl font-bold">
+                        Ce problema rezolvăm?
+                    </h3>
+                    <p class="text-base">
+                        Albirea tradițională a dinților nu este nici pe departe o experiență plăcută. Poate fi dureroasă și provoacă sensibilitate sporită a dinților.
+                        Noi credem că este nevoie de un tratament de albire la domiciliu, la fel de eficient ca peroxidul, dar fără toate efectele secundare neplăcute.
+                    </p>
+                    </div>
+                    <div id="ourSecret">
+                        <h3 class=" text-2xl font-bold">
+                            Ce este serul corector <span class=" text-[#8F75C1]">v34</span>?
+                        </h3>
+                        <p class="text-base">
+                            Descoperă secretul strălucirii dinților cu un tratament post-albire care restabilește strălucirea și elimină tonurile galbene nedorite. v34 utilizează tehnologia de corectare a culorii pentru a înălbi dinții, contrabalansând nuanțele variate ale zâmbetului tău. Cu v34, petele sunt ascunse, iar zâmbetul devine cu adevărat radiant.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class=" flex lg:flex-row  sm:flex-col sm:gap-4">
+                <div id="howItWorks" class="flex flex-col gap-4  lg:w-[49%] ">
+                    <h3 class=" text-2xl font-bold">
+                        Cum acesta funcționează?
+                    </h3>
+                    <p class="text-base">
+                        Secretul corectării culorii începe cu paleta de culori, unde violetul și galbenul sunt parteneri ideali, fiind culori complementare unul față de celălalt. Prin aplicarea violetului pe dinți, neutralizăm subtonurile galbene, oferindu-ți un zâmbet cu o nuanță de alb strălucitoare și atrăgătoare.
+                        v34 nu este doar un tratament de albire obișnuit; este o experiență sigură și plăcută, care nu schimbă aspectul natural al dinților tăi. Astfel, poți fi sigur că v34 este potrivit și pentru dinții tăi.
+                    </p>
+                    <div id="benefits" class="">
+                        <ul class=" flex flex-col gap-2 ">
+                            <li class="font-medium text-base flex items-center gap-4 bg-[#F8F7FB] rounded-lg p-4">
+                                <img src="./image/withoutPeroxid.svg" alt="without perexid">
+                                Formulă fără peroxid
+                            </li>
+                            <li class="font-medium text-base flex items-center gap-4 bg-[#F8F7FB] rounded-lg p-4">
+                                <img src="./image/tratementNonIvasive.svg" alt="non invasive">
+                                Tratament non-invaziv
+                            </li>
+                            <li class="font-medium text-base flex items-center gap-4 bg-[#F8F7FB] rounded-lg p-4">
+                                <img src="./image/tratementWithoutPain.svg" alt="without pain">
+                                Inălbire fără durere
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="diagramV" class=" flex items-center justify-center  lg:w-1/2 bg-[#F8F7FB]  rounded-lg " >
+                    <img class='w-full xl:w-[100%] xl:h-5/6 lg:h-[100%] lg:w-[90%] md:w-2/3 sm:w-full'  src="./image/diagramV.svg" alt="diagramV">
+                </div>
+            </div>
+        </section>
+
+        <section id="steps" class="  justify-between bg-bg-[#8F75C1] pading-custom flex lg:gap-10 lg:justify-between lg:flex-row  sm:justify-center sm:gap-4 sm:items-center sm:flex-col">
+            <div class="lg:w-[40%] h-full">
+                <img class="lg:w-full md:w-[25rem]" src="./image/product2.svg" alt="v34 product">
+            </div>
+            <div class="flex flex-col gap-4 justify-between lg:h-[25rem] lg:w-[50%]  lg:items-start sm:flex-col ">
+                <h3 class="text-white sm:text-[1.75rem] font-bold">
+                    Transformă zâmbetul în trei pași simpli
+                </h3>
+                <ul class="flex flex-col lg:h-[10rem]  justify-between text-white sm:gap-4 sm:text-base">
+                    <li><span class="shadow-lg px-3 py-1 rounded-full bg-white mr-4 bg-opacity-5">1</span>Aplică ușor serul de înălbire</li>
+                    <li><span class="shadow-lg px-3 py-1 rounded-full bg-white mr-4 bg-opacity-5">2</span>Lasă-l să-și facă magia pentru 30 secunde</li>
+                    <li><span class="shadow-lg px-3 py-1 rounded-full bg-white mr-4 bg-opacity-5">3</span>Clătește cu apă pentru a îndepărta excesul</li>
+                    <li><span class="shadow-lg px-3 py-1 rounded-full bg-white mr-4 bg-opacity-5">4</span>Bucură-te de un zâmbet mai strălucitor!</li>
+                </ul>
+                <button class="bg-black px-8 py-6 text-white rounded-[4rem]">
+                    Comandă acum
+                </button>
+            </div>
+        </section>
+        
+        <section class="pading-custom bg-[#F8F7FB] flex sm:flex-col sm:items-center">
+            <h3 class="font-bold text-3xl text-center pading-custom lg:pt-5 lg:pb-5">
+                Clienții adoră <span class="text-[#8F75C1]">v34</span> pentru rezultate instante
+            </h3>
+        </section>
+
+        <section  x-data="carousel" class="bg-[#fbf7f7] flex justify-between pb-6 ">
+            <div 
+                id="prevBtn" 
+                class="bg-white rounded-tr-xl rounded-br-xl w-[3%] "
+                @click="carousel.prev()"
+            ></div>
+    
+            <div id="wrapper" x-data="userData" class="flex  gap-4  w-[80%] lg:justify-between sm:justify-center">
+                <template x-for="(comment, index) in comments" :key="index">
+                    <div 
+                        x-bind:class="{
+                            'hidden': (index !== carousel.selected && window.innerWidth < 768) ||    
+                                    (window.innerWidth >= 768 && window.innerWidth < 1024 && index !== carousel.selected && index !== carousel.selected + 1)||
+                                    (window.innerWidth >= 1024 && index >= carousel.selected - 1 && index <= carousel.selected + 1)
+                        }"
+                    
+                        class="bg-white flex rounded-3xl  flex-col gap-4 p-10 justify-between w-80 h-96"
+                        id="{index}"
+                    >
+                        <p class="" x-text="comment.comment"></p>
+                        <div class="flex gap-4">
+                            <img :src="comment.avatar" :alt="comment.user" class="avatar"> 
+                            <h3 class="" x-text="comment.user"></h3>
+                        </div>
+                    </div>
+                </template>
+            </div>
+
+            <div 
+                id="nextBtn" 
+                class="bg-white rounded-tl-xl rounded-bl-xl w-[3%] lg:hi"
+                @click="carousel.next()"
+            ></div>
+        </section>
+        <section id="ofer" class="bg-white pading-custom pt-16 h-auto">
+            <div class="bg-[#A68DD7] lg:px-14 rounded-2xl flex lg:flex-row-reverse sm:flex-col items-center pb-4 2xl:h-[20rem] lg:h-[15rem] overflow-hidden">
+                <div class=" 2xl:h-[50rem] xl:h-[32rem] lg:h-[30rem]">
+                    <img class=" h-full lg:mb-2 sm:-mb-10 object-cover " src="./image/oferImage.svg" alt="ofer image">
+                </div>
+                <div id="wraper" class="flex gap-3 lg:items-start sm:flex-col items-center">
+                    <div id="headingOfer" class=" mb-4 flex flex-col lg:items-start sm:items-center bg-primary-transparent shadow-[0px_0px_200px_30px_#A68DD7,inset_0px_-100px_200px_0px_#A68DD7]">
+                        <h3 class="text-[#550086] lg:text-2xl sm:text-xl font-bold ">Ofertă exclusivă</h3>
+                        <h3 class=" lg:text-start sm:text-center text-white 2xl:text-6xl xl:text-5xl  lg:text-4xl sm:text-[1.75rem] font-bold">
+                            Obține o reducere de 15% la prima achiziție
+                        </h3>
+                    </div>
+                    <button id="oferBtn" class="bg-black text-white text-base py-6 px-8 rounded-[6rem]">
+                        Aplică reducerea
+                    </button>
+                </div>
+            </div>
+        </section>
+       
+        <section id="FAQ" class="bg-white pading-custom flex justify-between lg:flex-row sm:flex-col gap-4 ">
+            <div>
+                <h3 class="sm:font-bold text-[1.75rem]">
+                    Ai careva întrebări?
+                </h3>
+            </div>
+            <div x-data="faqs" class="flex flex-col gap-4">
+                <template x-for="(faq, index) in faqs" :key="index">
+                    <div id="wraper"
+                    >
+                        <div 
+                            id="btnOpenAnswer"
+                            class="bg-[#EEEDF1] rounded-2xl flex  justify-between border p-4  "
+                            @click="faqs = faqs.map(f => ({ ...f, isOpen: f.question !== faq.question ? false : !f.isOpen}))"
+                            x-bind:class="{ 
+                                'bg-[#550086ca] text-white ': faq.isOpen, 
+                                'items-center':!faq.isOpen
+                            }">
+                            <div class="wraper-text text-base "
+                                x-bind:class="{ 
+                                    'sm:w-[75%]': faq.isOpen, 
+                                    'sm:w-[80%]': !faq.isOpen, 
+                                     }">
+                                <h3 class="font-bold"  x-text="faq.question"></h3>
+                                <p class="lg:w-96"  x-text="faq.answer" x-show="faq.isOpen"></p>
+                            </div>
+                            <div class="wraper-image  h-4"
+                                x-bind:class="{ 
+                                    'w-[10%]': faq.isOpen ,
+                                    'lg:w-auto':faq.isOpen
+                                }">
+                                <img class=" w-full" x-show="!faq.isOpen" src="./image/openAnswerBtn.svg" alt="plus">
+                                <img class=" w-full" x-show="faq.isOpen" src="./image/closeAnswerBtn.svg" alt="close answer btn">
+                            </div>
+                    </div>
+                    </div>
+                </template>
+            </div>
+        </section>
+
+        <section id="contact" class="bg-white pading-custom lg:-mt-[20rem]">
+            <div class="font-bold  flex flex-col gap-4 lg:w-[30%]">
+                <h3 class="  text-xl">
+                    Nu ai găsit ceea ce căutai?
+                </h3>
+                <ul id="contactInfo" class="flex sm:flex-col sm:gap-4">
+                    <li class="bg-[#F8F7FB] rounded-2xl px-5 py-4 flex gap-4">
+                        <img src="/image/emailicon.svg" alt="email icon ">
+                        <div>
+                            <h6 class="text-base">Lasă-ne un mesaj</h6>
+                            <a class="text-[#8F75C1] text-xl" href="mailto:info@hismile.md">info@hismile.md</a>
+                        </div>
+                    </li>
+                    <li class="bg-[#F8F7FB] rounded-2xl px-5 py-4 flex gap-4">
+                        <img src="./image/phoneIcon.svg" alt="phoneIcon">
+                        <div>
+                            <h6 class="text-base">Sună-ne la numărul</h6>
+                            <a class="text-[#8F75C1] text-xl" href="tel:+373 (68) 943 375">+373 (68) 943 375</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="footer" class="flex gap-4 justify-between lg:flex-row sm:flex-col pading-custom bg-white border-t">
+            <div id="paymethod" class="flex justify-center">
+                <ul class="flex gap-4">
+                    <li>
+                        <img src="./image/visaicon.svg" alt="visa icon">
+                    </li>
+                    <li>
+                        <img src="./image/mastercardIcon.svg" alt="master card icon">
+                    </li>
+                    <li>
+                        <img src="./image/paypalIcon.svg" alt="paypal Icon">
+                    </li>
+                    <li>
+                        <img src="./image/amExicon.svg" alt="amex icon">
+                    </li>
+                </ul>
+            </div>
+            <div class="flex justify-center">
+                <ul class="text-xs flex gap-4">
+                    <li><a href="#">Termeni și condiții</a></li>
+                    <li><a href="#">Confidențialitate</a></li>
+                    <li><a href="#">Livrare</a></li>
+                    <li><a href="#">Achitare</a></li>
+                </ul>
+            </div>
+            <div class="font-normal text-xs flex justify-center text-slate-500">
+                © 2024 hismile.md  ·  Toate drepturile rezervate
+            </div>
+        </section>
+        
+        <section 
+            id="modalWindow" 
+            class="fixed inset-0 flex items-center justify-center z-50 bg-gray-800 bg-opacity-50 w-[50%] pt-14 m-auto"  
+            @click.away="toggle()" 
+            x-transition:enter="ease-out duration-300" 
+            x-transition:enter-start="opacity-0 scale-90" 
+            x-transition:enter-end="opacity-100 scale-100" 
+            x-transition:leave="ease-in duration-300" 
+            x-transition:leave-start="opacity-100 scale-100" 
+            x-transition:leave-end="opacity-0 scale-90"
+            x-show="!isOpen"
+            @keydown.escape="toggle()" x-cloak>
+           
+            
+
+
+        </section>
+        
+
+       
+
+        
+       
+    </main>
+
+    <script type="module"  src="./js/bundle.js"></script>    
+    
+</body>
+
+</html>
