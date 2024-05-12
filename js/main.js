@@ -1,7 +1,7 @@
 
 
 import Alpine from "alpinejs";
-import {comments, questionsAnswer} from "./data"; 
+import {comments, questionsAnswer,districts} from "./data"; 
 
 window.Alpine = Alpine;
     
@@ -55,6 +55,25 @@ const showModal = () => {
     };
 };
 
+const checkedBox = () => {
+    return {
+        isChecked: false,
+        toggle(){
+            this.isChecked = !this.isChecked;
+         
+        }
+    }
+}
+
+const slectDistrict = () => {
+
+}
+
+Alpine.data('districts', ()=> {
+    districts:districts
+})
+
+Alpine.data('checkedBox', checkedBox)
 Alpine.data('showModal', showModal);
 
 

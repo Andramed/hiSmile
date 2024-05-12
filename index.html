@@ -211,7 +211,7 @@
                             class="bg-[#EEEDF1] rounded-2xl flex  justify-between border p-4  "
                             @click="faqs = faqs.map(f => ({ ...f, isOpen: f.question !== faq.question ? false : !f.isOpen}))"
                             x-bind:class="{ 
-                                'bg-[#550086ca] text-white ': faq.isOpen, 
+                                'bg-[#550086] text-white ': faq.isOpen, 
                                 'items-center':!faq.isOpen
                             }">
                             <div class="wraper-text text-base "
@@ -292,7 +292,7 @@
         
         <section 
             id="modalWindow" 
-            class="fixed inset-0 flex items-center justify-center z-50 bg-gray-800 bg-opacity-50 w-[50%] pt-14 m-auto"  
+            class="fixed inset-0 flex justify-center  z-50 bg-gray-800 bg-opacity-50 lg:w-[90%] sm:w-full pt-14 m-auto"  
             @click.away="toggle()" 
             x-transition:enter="ease-out duration-300" 
             x-transition:enter-start="opacity-0 scale-90" 
@@ -303,7 +303,101 @@
             x-show="!isOpen"
             @keydown.escape="toggle()" x-cloak>
            
-            
+            <form class="bg-[#F8F7FB] h-[40rem] overflow-y-auto lg:w-[60%] sm:w-[95%] pading-custom" >
+                <div class="flex justify-between">
+                    <h3 class="font-bold lg:text-3xl lg:w-1/2 sm:text-2xl">Comandă acum</h3>
+                    <button type="button" @click="toggle()" ><img src="./image/btnClose.svg" alt="btn close"></button>
+                </div>
+                <div id="contactData" class=" text-black bg-white">
+                    <h3 class="font-bold text-xl">Date de contact</h3>
+                    <div>
+                        <label for="first_name" class="block mb-2 text-base font-medium text-gray-900 ">Prenume</label>
+                        <input type="text" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  placeholder="Introdu prenumele" required />
+                    </div>
+                    <div >
+                        <label for="last_name" class="block mb-2 text-base font-medium text-gray-900 ">Nume</label>
+                        <input type="text" id="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  placeholder="Introdu numele" required />
+                    </div>
+                    <div >
+                        <label for="email" class="block mb-2 text-base font-medium text-gray-900 ">Adresă e-mail</label>
+                        <input type="email" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  placeholder="Introdu adresa e-mail" required />
+                    </div>
+                    <div >
+                        <label for="phone" class="block mb-2 text-base font-medium text-gray-900 ">Număr de telefon</label>
+                        <input type="number" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  placeholder="Introdu numărul de telefon" required />
+                    </div>
+                </div>
+
+                <div id="informationForDelivery">
+                    <h3 class="font-bold text-xl">
+                        Informații pentru livrare
+                    </h3>
+                    <div >
+                        <h5 class="font-medium text-base">Mod de livrare</h5>
+                        <ul id="delivery-type" x-data="checkedBox" class=" text-sm font-medium text-gray-900 bg-white  rounded-lg w-full ">
+                            <li x-data="{ isChecked: false }" x-on:click="isChecked = !isChecked" x-on:click.away="isChecked = false">
+                                <div class="flex items-center px-2 py-3 bg-[#8F75C1] w-full rounded-3xl" :class="{ 'bg-white': !isChecked, 'border border-[#550086]': isChecked }">
+                                    <label for="gift-delivery" class="flex items-center w-full gap-2 ms-2 text-sm font-medium text-gray-900">
+                                        <img x-bind:src="isChecked ? './image/deliveryCarWhite.svg' : './image/deliveryCar.svg'" alt="car">
+                                        <p>
+                                            <span class="text-black font-bold" :class="{'text-white': isChecked}">Standard</span>
+                                            <span class="bg-[#8F75C1] rounded-[6rem] text-[#550086] px-1" :class="{'bg-white': isChecked, 'text-white': !isChecked}">+50 lei</span><br>
+                                            <span :class="{'text-white': isChecked}">
+                                                3–14 zile lucrătoare
+                                            </span>
+                                        </p>
+                                    </label>
+                                    <input id="gift-delivery" type="radio" value="gift-delivery" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2" x-on:change="isChecked = true">
+                                </div>
+                            </li>
+
+                            <li x-data="{ isChecked: false }" x-on:click="isChecked = !isChecked" x-on:click.away="isChecked = false">
+                                <div class="flex items-center px-2 py-3 bg-[#8F75C1] w-full rounded-3xl" :class="{ 'bg-white': !isChecked, 'border border-[#550086]': isChecked }">
+                                    <label for="standart-delivery" class="flex items-center w-full gap-2 ms-2 text-sm font-medium text-gray-900">
+                                        <img x-bind:src="isChecked ? './image/giftIconWhite.svg' : './image/giftIcon.svg'" alt="car">
+                                        <p>
+                                            <span class="text-black font-bold" :class="{'text-white': isChecked}">Cadou</span>
+                                            <span class="bg-[#8F75C1] rounded-[6rem] text-[#550086] px-1" :class="{'bg-white': isChecked, 'text-white': !isChecked}">+100 lei</span><br>
+                                            <span :class="{'text-white': isChecked}">
+                                                3–7 zile lucrătoare
+                                            </span>
+                                        </p>
+                                    </label>
+                                    <input id="standart-delivery" type="radio" value="standart-delivery" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2" x-on:change="isChecked = true">
+                                </div>
+                            </li>
+                            
+                            <li x-data="{ isChecked: false }" x-on:click="isChecked = !isChecked" x-on:click.away="isChecked = false">
+                                <div class="flex items-center px-2 py-3 bg-[#8F75C1] w-full rounded-3xl" :class="{ 'bg-white': !isChecked, 'border border-[#550086]': isChecked }">
+                                    <label for="express-delivery" class="flex items-center w-full gap-2 ms-2 text-sm font-medium text-gray-900">
+                                        <img x-bind:src="isChecked ? './image/expressIconWhite.svg' : './image/expressIcon.svg'" alt="car">
+                                        <p>
+                                            <span class="text-black font-bold" :class="{'text-white': isChecked}">Express</span>
+                                            <span class="bg-[#8F75C1] rounded-[6rem] text-[#550086] px-1" :class="{'bg-white': isChecked, 'text-white': !isChecked}">+150 lei</span><br>
+                                            <span :class="{'text-white': isChecked}">
+                                                1–3 zile lucrătoare
+                                            </span>
+                                        </p>
+                                    </label>
+                                    <input id="express-delivery" type="radio" value="express-delivery" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2" x-on:change="isChecked = true">
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="h-48">
+                    <select x-data="districts" name="district" id="district">
+                        <option value="null">Selecteaz raionul</option>
+                        <template  x-for="district in districts" :key="district.id">
+                            
+                            <option x-text="district.name" :value="district.id"></option>
+
+                        </template>
+                    </select>
+                </div>
+
+            </form>
 
 
         </section>
