@@ -17,9 +17,9 @@
             <logo> <a href="#"><span class=" text-white text-xl">hismile</span></a></logo>
             <nav>
                 <ul class=" flex gap-4 text-white lg:text-base ">
-                    <li class=" text-base hidden  lg:block"><a href="#">Descoperă</a></li>
-                    <li class=" text-base hidden  lg:block"><a href="#">Recomandări</a></li>
-                    <li class=" text-base hidden  lg:block"><a href="#">Întrebări frecvente</a></li>
+                    <li class=" text-base hidden  lg:block"><a href="#hero">Descoperă</a></li>
+                    <li class=" text-base hidden  lg:block"><a href="#reviews">Recomandări</a></li>
+                    <li class=" text-base hidden  lg:block"><a href="#FAQ">Întrebări frecvente</a></li>
                     <div x-data="languageSelector()" class="relative">
                         <button @click="toggleDropdown()" class="px-4 py-1 rounded-[6rem]  flex gap-2 items-center bg-[#ba98f980]">
                             <img class="w-5 h-5" x-bind:src="selectedFlag" alt="selected flag"> <!-- Utilizăm x-bind pentru a actualiza dinamic calea către imaginea steagului -->
@@ -143,7 +143,7 @@
             </h3>
         </section>
 
-        <section  x-data="carousel" class="bg-[#fbf7f7] flex justify-between pb-6 ">
+        <section id="reviews"  x-data="carousel" class="bg-[#fbf7f7] flex justify-between pb-6 ">
             <div 
                 id="prevBtn" 
                 class="bg-white rounded-tr-xl rounded-br-xl w-[3%] "
