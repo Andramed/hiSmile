@@ -131,7 +131,7 @@
                     <li><span class="shadow-lg px-3 py-1 rounded-full bg-white mr-4 bg-opacity-5">3</span>Clătește cu apă pentru a îndepărta excesul</li>
                     <li><span class="shadow-lg px-3 py-1 rounded-full bg-white mr-4 bg-opacity-5">4</span>Bucură-te de un zâmbet mai strălucitor!</li>
                 </ul>
-                <button class="bg-black px-8 py-6 text-white rounded-[4rem]">
+                <button @click="toggle"  class="bg-black px-8 py-6 text-white rounded-[4rem]">
                     Comandă acum
                 </button>
             </div>
@@ -211,7 +211,7 @@
                             class="bg-[#EEEDF1] rounded-2xl flex  justify-between border p-4  "
                             @click="faqs = faqs.map(f => ({ ...f, isOpen: f.question !== faq.question ? false : !f.isOpen}))"
                             x-bind:class="{ 
-                                'bg-[#550086] text-white ': faq.isOpen, 
+                                'bg-[#550086e5] text-white ': faq.isOpen, 
                                 'items-center':!faq.isOpen
                             }">
                             <div class="wraper-text text-base "
@@ -334,55 +334,50 @@
                     </h3>
                     <div >
                         <h5 class="font-medium text-base">Mod de livrare</h5>
-                        <ul id="delivery-type" x-data="checkedBox" class=" text-sm font-medium text-gray-900 bg-white  rounded-lg w-full ">
-                            <li x-data="{ isChecked: false }" x-on:click="isChecked = !isChecked" x-on:click.away="isChecked = false">
-                                <div class="flex items-center px-2 py-3 bg-[#8F75C1] w-full rounded-3xl" :class="{ 'bg-white': !isChecked, 'border border-[#550086]': isChecked }">
+                        <ul id="delivery-type" x-data="checkedBox" class="text-sm font-medium text-gray-900 bg-white rounded-lg w-full" >
+                            <li @click="toggle('standard')">
+                                <div class="flex items-center px-2 py-3 bg-[#8F75C1] w-full rounded-3xl" :class="{ 'bg-white': !isCheckedStandart, 'border border-[#550086]': isCheckedStandart }">
                                     <label for="gift-delivery" class="flex items-center w-full gap-2 ms-2 text-sm font-medium text-gray-900">
-                                        <img x-bind:src="isChecked ? './image/deliveryCarWhite.svg' : './image/deliveryCar.svg'" alt="car">
+                                        <img :src="isCheckedStandart ? './image/deliveryCarWhite.svg' : './image/deliveryCar.svg'" alt="car">
                                         <p>
-                                            <span class="text-black font-bold" :class="{'text-white': isChecked}">Standard</span>
-                                            <span class="bg-[#8F75C1] rounded-[6rem] text-[#550086] px-1" :class="{'bg-white': isChecked, 'text-white': !isChecked}">+50 lei</span><br>
-                                            <span :class="{'text-white': isChecked}">
-                                                3–14 zile lucrătoare
-                                            </span>
+                                            <span class="text-black font-bold" :class="{'text-white': isCheckedStandart}">Standard</span>
+                                            <span class="bg-[#8F75C1] rounded-[6rem] text-[#550086] px-1" :class="{'bg-white': isCheckedStandart, 'text-white': !isCheckedStandart}">+50 lei</span><br>
+                                            <span :class="{'text-white': isCheckedStandart}">3–14 zile lucrătoare</span>
                                         </p>
                                     </label>
-                                    <input id="gift-delivery" type="radio" value="gift-delivery" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2" x-on:change="isChecked = true">
+                                    <input id="gift-delivery" type="radio" value="gift-delivery" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2" @change="toggle('standard')">
                                 </div>
                             </li>
-
-                            <li x-data="{ isChecked: false }" x-on:click="isChecked = !isChecked" x-on:click.away="isChecked = false">
-                                <div class="flex items-center px-2 py-3 bg-[#8F75C1] w-full rounded-3xl" :class="{ 'bg-white': !isChecked, 'border border-[#550086]': isChecked }">
+                        
+                            <li @click="toggle('gift')">
+                                <div class="flex items-center px-2 py-3 bg-[#8F75C1] w-full rounded-3xl" :class="{ 'bg-white': !isCheckedGift, 'border border-[#550086]': isCheckedGift }">
                                     <label for="standart-delivery" class="flex items-center w-full gap-2 ms-2 text-sm font-medium text-gray-900">
-                                        <img x-bind:src="isChecked ? './image/giftIconWhite.svg' : './image/giftIcon.svg'" alt="car">
+                                        <img :src="isCheckedGift ? './image/giftIconWhite.svg' : './image/giftIcon.svg'" alt="car">
                                         <p>
-                                            <span class="text-black font-bold" :class="{'text-white': isChecked}">Cadou</span>
-                                            <span class="bg-[#8F75C1] rounded-[6rem] text-[#550086] px-1" :class="{'bg-white': isChecked, 'text-white': !isChecked}">+100 lei</span><br>
-                                            <span :class="{'text-white': isChecked}">
-                                                3–7 zile lucrătoare
-                                            </span>
+                                            <span class="text-black font-bold" :class="{'text-white': isCheckedGift}">Cadou</span>
+                                            <span class="bg-[#8F75C1] rounded-[6rem] text-[#550086] px-1" :class="{'bg-white': isCheckedGift, 'text-white': !isCheckedGift}">+100 lei</span><br>
+                                            <span :class="{'text-white': isCheckedGift}">3–7 zile lucrătoare</span>
                                         </p>
                                     </label>
-                                    <input id="standart-delivery" type="radio" value="standart-delivery" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2" x-on:change="isChecked = true">
+                                    <input id="standart-delivery" type="radio" value="standart-delivery" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2" @change="toggle('gift')">
                                 </div>
                             </li>
-                            
-                            <li x-data="{ isChecked: false }" x-on:click="isChecked = !isChecked" x-on:click.away="isChecked = false">
-                                <div class="flex items-center px-2 py-3 bg-[#8F75C1] w-full rounded-3xl" :class="{ 'bg-white': !isChecked, 'border border-[#550086]': isChecked }">
+                        
+                            <li  @click="toggle('express')"   >
+                                <div class="flex items-center px-2 py-3 bg-[#8F75C1] w-full rounded-3xl" :class="{ 'bg-white': !isCheckedExpress, 'border border-[#550086]': isCheckedExpress }">
                                     <label for="express-delivery" class="flex items-center w-full gap-2 ms-2 text-sm font-medium text-gray-900">
-                                        <img x-bind:src="isChecked ? './image/expressIconWhite.svg' : './image/expressIcon.svg'" alt="car">
+                                        <img :src="isCheckedExpress ? './image/expressIconWhite.svg' : './image/expressIcon.svg'" alt="car">
                                         <p>
-                                            <span class="text-black font-bold" :class="{'text-white': isChecked}">Express</span>
-                                            <span class="bg-[#8F75C1] rounded-[6rem] text-[#550086] px-1" :class="{'bg-white': isChecked, 'text-white': !isChecked}">+150 lei</span><br>
-                                            <span :class="{'text-white': isChecked}">
-                                                1–3 zile lucrătoare
-                                            </span>
+                                            <span class="text-black font-bold" :class="{'text-white': isCheckedExpress}">Express</span>
+                                            <span class="bg-[#8F75C1] rounded-[6rem] text-[#550086] px-1" :class="{'bg-white': isCheckedExpress, 'text-white': !isCheckedExpress}">+150 lei</span><br>
+                                            <span :class="{'text-white': isCheckedExpress}">1–3 zile lucrătoare</span>
                                         </p>
                                     </label>
-                                    <input id="express-delivery" type="radio" value="express-delivery" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2" x-on:change="isChecked = true">
+                                    <input id="express-delivery" type="radio" value="express-delivery" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2" @change="toggle('express')">
                                 </div>
                             </li>
                         </ul>
+                        
                     </div>
                 </div>
 

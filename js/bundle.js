@@ -3421,7 +3421,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   };
   var showModal = () => {
     return {
-      isOpen: false,
+      isOpen: true,
       toggle() {
         this.isOpen = !this.isOpen;
         console.log("toogle used");
@@ -3430,9 +3430,30 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   };
   var checkedBox = () => {
     return {
-      isChecked: false,
-      toggle() {
-        this.isChecked = !this.isChecked;
+      isCheckedStandart: false,
+      isCheckedExpress: false,
+      isCheckedGift: false,
+      toggle(type) {
+        switch (type) {
+          case "standard":
+            this.isCheckedStandart = true;
+            this.isCheckedExpress = false;
+            this.isCheckedGift = false;
+            console.log("Standard delivery selected");
+            break;
+          case "express":
+            this.isCheckedStandart = false;
+            this.isCheckedExpress = true;
+            this.isCheckedGift = false;
+            console.log("Express delivery selected");
+            break;
+          case "gift":
+            this.isCheckedStandart = false;
+            this.isCheckedExpress = false;
+            this.isCheckedGift = true;
+            console.log("Gift delivery selected");
+            break;
+        }
       }
     };
   };
