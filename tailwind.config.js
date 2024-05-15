@@ -20,9 +20,3 @@ module.exports = {
   plugins: [],
 }
 
-// bg-red-950 de la 320 in jos e asta
-// 2xl:bg-indigo-800 de la 1440 in sus
-// xl:bg-green-700 de la 1024 pina la 1440
-// lg:bg-cyan-400 de la 768 pina la 1024
-// md:bg-slate-500 de la 425 pina la 768
-// sm:bg-red-800 320 -> 425

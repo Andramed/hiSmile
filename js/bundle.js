@@ -3421,7 +3421,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   };
   var showModal = () => {
     return {
-      isOpen: true,
+      isOpen: false,
       toggle() {
         this.isOpen = !this.isOpen;
         console.log("toogle used");
