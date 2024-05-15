@@ -74,59 +74,59 @@ const questionsAnswer = [
 
 const districts = [
     {   
-        id:1,
+        id:0,
         name: "Anenii Noi",
-        village: ["Anenii Noi", "Balmaz", "Batăr", "Bîc", "Bucovăț", "Butuceni", "Chetrosu", "Cîrpești", "Cupcui", "Fîrlădeni", "Gura Bîcului", "Gura Galbenei", "Hănășenii Noi", "Holercani", "Mălăiești", "Mîndrești", "Roșcani", "Tătărăuca Nouă", "Zahorna"]
+        villages: ["Anenii Noi", "Balmaz", "Batăr", "Bîc", "Bucovăț", "Butuceni", "Chetrosu", "Cîrpești", "Cupcui", "Fîrlădeni", "Gura Bîcului", "Gura Galbenei", "Hănășenii Noi", "Holercani", "Mălăiești", "Mîndrești", "Roșcani", "Tătărăuca Nouă", "Zahorna"]
     },
     {
-        id: 2,
+        id: 1,
         name: "Bălți", // Numele raionului următor
         villages: ["Bălți", "Vadul-Leca", "Slobozia-Mare", "Cristeștii-Noi", "Bălțata"] // Lista de sate pentru raionul "Bălți"
     },
     {
-        id: 3,
+        id: 2,
         name: "Briceni",
         villages: ["Bălțata", "Bănești", "Beleavînți", "Bolohan", "Cerlina", "Chiurt", "Cotușca", "Cristești", "Cupcini", "Dumbrăveni", "Druța", "Frumoasa", "Găinăuți", "Găvănoasa", "Glodeni", "Goleni", "Grușeni", "Hăsnășenii Mari", "Hlinaia", "Izvoare", "Mărcăuți", "Mihălășeni", "Moșana", "Năvîrneț", "Pelinia", "Popești", "Porumbeni", "Sculeni", "Seliște", "Șendreni", "Știubeieni", "Tătărăuca Veche", "Tocuz", "Vorniceni", "Zăicani"]
     },
     {
-        id: 4,
+        id: 3,
         name: "Cahul",
         cities: ["Cahul"],
         villages: ["Alexandru Ioan Cuza", "Aluatu", "Antonești", "Baimaclia", "Brînza", "Budești", "Bulboaca", "Cahul", "Cahul", "Cîrpești", "Cîrpești", "Colibași", "Doina", "Dolna", "Ferapontievca", "Frumușica", "Găvănoasa", "Ghiliceni", "Ghidirim", "Hiliuți", "Hirbovat", "Iujnoe", "Larga", "Lebedenco", "Leuntea", "Lopatna", "Manta", "Mîndra", "Munteni", "Plop", "Purcari", "Sarata", "Sărătenii Noi", "Seliștea Nouă", "Tănătari", "Tartaul de Salcie", "Tartaul de Sus", "Ucrainca", "Ustia"]
     },
     {
-        id: 5,
+        id: 4,
         name: "Călărași",
         cities: ["Călărași"],
         villages: ["Călărași", "Buda", "Frasin", "Ghiduleni", "Mihailovca", "Peresecina", "Pitușca", "Sofia", "Sverida"]
     },
     {
-        id: 6,
+        id: 5,
         name: "Căușeni",
         cities: ["Căușeni"],
         villages: ["Căușeni", "Alexanderfeld", "Baurci", "Beșghioz", "Borceag", "Căușeni", "Cazaclia", "Ciocîlteni", "Cîrnățeni", "Gîsca", "Ialpug", "Lebedenco", "Manta", "Mihailovca", "Sofia", "Valcinet"]
     },
 
     {
-        id: 7,
+        id: 6,
         name: "Cimișlia",
         cities: ["Cimișlia"],
         villages: ["Cimișlia", "Caraclău", "Chirca", "Cotovscoe", "Cotul Morii", "Crihana Veche", "Cubolta", "Elizaveta", "Larga Nouă", "Larga Veche", "Mărculești", "Moscovei", "Munteni", "Rădenii Vechi", "Rădenii Vechi", "Răscăieți", "Selemet", "Slobozia Nouă", "Slobozia Veche", "Stolniceni", "Șerpeni", "Tocuz", "Tocuz"]
     },
     {
-        id: 8,
+        id: 7,
         name: "Criuleni",
         cities: ["Criuleni"],
         villages: ["Criuleni", "Bocancea", "Boghiceni", "Colosova", "Costești", "Coșcalia", "Cuhnești", "Doltu", "Dumitreni", "Ghiduleni", "Mândrești", "Mărășești", "Mălăiești", "Nistorești", "Ratuș", "Sălcuța", "Săseni", "Vatra"]
     },
     {
-        id: 9,
+        id: 8,
         name: "Dondușeni",
         cities: ["Dondușeni"],
         villages: ["Dondușeni", "Bocșa", "Brătușeni", "Chirilovca", "Chirilovca Nouă", "Dobrogea Nouă", "Dolna", "Făgădău", "Făgădău Nou", "Fîntîna Albă", "Fîntîna Nouă", "Fîntîna Veche", "Ivanovca", "Ivanovca Nouă", "Malaesti", "Mihălășeni", "Mîndra", "Nihoreni", "Țîmpul Nou", "Țîmpul Vechi", "Valea Mare"]
     },
     {
-        id: 10,
+        id: 9,
         name: "Drochia",
         cities: ["Drochia"],
         villages: ["Drochia", "Borogani", "Cervencaia", "Coteala", "Cuhneștii Noi", "Danu", "Drujineni", "Drujinenii Noi", "Frasin", "Gordinești", "Lazo", "Mihăileni", "Mihăilenii Noi", "Molești", "Roșietici", "Roșieticii Noi", "Scăieni", "Seliște", "Șendreni", "Șuri", "Țîra", "Ursari"]

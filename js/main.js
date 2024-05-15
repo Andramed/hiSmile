@@ -86,30 +86,72 @@ const checkedBox = () => {
     };
 }
 
-const slectDistrict = () => {
+const districtData = () => {
+    return {
+        selectedDistricts: null,
+        selectedVillage:null,
+        districts,
 
+        selectDistricts(value){
+            this.selectedDistricts = value;
+            console.log(districts[this.selectedDistricts]);
+        },
+        
+    }
 }
 
-Alpine.data('districts', ()=> {
-    districts:districts
-})
+const payMethod = () => {
+    return {
+        cashOrCard:false,
+        transerBancar:false,
+        onlinePayment:false,
+        terminal:false,
 
+        toggle(type) {
+            switch (type) {
+                case 'cashOrCard':
+                    this.cashOrCard = true;
+                    this.transerBancar =false;
+                    this.onlinePayment=false;
+                    this.terminal = false
+                    break;
+                case 'transerBancar':
+                    this.cashOrCard = false;
+                    this.transerBancar =true;
+                    this.onlinePayment=false;
+                    this.terminal = false
+                    break;
+                case 'onlinePayment':
+                    this.cashOrCard = false;
+                    this.transerBancar =false;
+                    this.onlinePayment=true;
+                    this.terminal = false
+                    break;
+                case 'terminal':
+                    this.cashOrCard = false;
+                    this.transerBancar =false;
+                    this.onlinePayment=false;
+                    this.terminal = true
+                    break;
+            }
+        }
+    }
+}
+
+Alpine.data('payMethod', payMethod)
+Alpine.data('districts', districtData)
 Alpine.data('checkedBox', checkedBox)
 Alpine.data('showModal', showModal);
-
-
 Alpine.data('languageSelector', languageSelector);
-
-
-    Alpine.data('userData', () => ({
-        comments: comments,
-    }));
-    Alpine.data('carousel', () => ({
-        carousel:carousel()
-    }))
-   Alpine.data('faqs', () => ({
-        faqs:questionsAnswer
-   }))
+Alpine.data('userData', () => ({
+comments: comments,
+}));
+Alpine.data('carousel', () => ({
+carousel:carousel()
+}))
+Alpine.data('faqs', () => ({
+faqs:questionsAnswer
+}))
 
 Alpine.start();
 

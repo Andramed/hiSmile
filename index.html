@@ -303,7 +303,7 @@
             x-show="isOpen"
             @keydown.escape="toggle()" x-cloak>
            
-            <form class="bg-[#F8F7FB] h-[40rem] overflow-y-auto lg:w-[60%] sm:w-[95%] pading-custom" >
+            <form class="bg-[#FFFFFF] h-[40rem] overflow-y-auto lg:w-[60%] sm:w-[95%] pading-custom flex flex-col gap-4 " >
                 <div class="flex justify-between">
                     <h3 class="font-bold lg:text-3xl lg:w-1/2 sm:text-2xl">Comandă acum</h3>
                     <button type="button" @click="toggle()" ><img src="./image/btnClose.svg" alt="btn close"></button>
@@ -334,14 +334,14 @@
                     </h3>
                     <div >
                         <h5 class="font-medium text-base">Mod de livrare</h5>
-                        <ul id="delivery-type" x-data="checkedBox" class="text-sm font-medium text-gray-900 bg-white rounded-lg w-full" >
+                        <ul id="delivery-type" x-data="checkedBox" class="text-sm font-medium text-gray-900 bg-white rounded-lg w-full flex flex-col gap-4" >
                             <li @click="toggle('standard')">
-                                <div class="flex items-center px-2 py-3 bg-[#8F75C1] w-full rounded-3xl" :class="{ 'bg-white': !isCheckedStandart, 'border border-[#550086]': isCheckedStandart }">
+                                <div class="flex items-center px-2 py-3 bg-[#8F75C1] w-full rounded-3xl" :class="{ 'bg-[#F8F7FB]': !isCheckedStandart, 'border border-[#550086]': isCheckedStandart }">
                                     <label for="gift-delivery" class="flex items-center w-full gap-2 ms-2 text-sm font-medium text-gray-900">
                                         <img :src="isCheckedStandart ? './image/deliveryCarWhite.svg' : './image/deliveryCar.svg'" alt="car">
                                         <p>
                                             <span class="text-black font-bold" :class="{'text-white': isCheckedStandart}">Standard</span>
-                                            <span class="bg-[#8F75C1] rounded-[6rem] text-[#550086] px-1" :class="{'bg-white': isCheckedStandart, 'text-white': !isCheckedStandart}">+50 lei</span><br>
+                                            <span class="bg-[#8F75C1] rounded-[6rem] text-[#550086] px-1" :class="{'bg-[#F8F7FB]': isCheckedStandart, 'text-white': !isCheckedStandart}">+50 lei</span><br>
                                             <span :class="{'text-white': isCheckedStandart}">3–14 zile lucrătoare</span>
                                         </p>
                                     </label>
@@ -350,7 +350,7 @@
                             </li>
                         
                             <li @click="toggle('gift')">
-                                <div class="flex items-center px-2 py-3 bg-[#8F75C1] w-full rounded-3xl" :class="{ 'bg-white': !isCheckedGift, 'border border-[#550086]': isCheckedGift }">
+                                <div class="flex items-center px-2 py-3 bg-[#8F75C1] w-full rounded-3xl" :class="{ 'bg-[#F8F7FB]': !isCheckedGift, 'border border-[#550086]': isCheckedGift }">
                                     <label for="standart-delivery" class="flex items-center w-full gap-2 ms-2 text-sm font-medium text-gray-900">
                                         <img :src="isCheckedGift ? './image/giftIconWhite.svg' : './image/giftIcon.svg'" alt="car">
                                         <p>
@@ -364,7 +364,7 @@
                             </li>
                         
                             <li  @click="toggle('express')"   >
-                                <div class="flex items-center px-2 py-3 bg-[#8F75C1] w-full rounded-3xl" :class="{ 'bg-white': !isCheckedExpress, 'border border-[#550086]': isCheckedExpress }">
+                                <div class="flex items-center px-2 py-3 bg-[#8F75C1] w-full rounded-3xl" :class="{ 'bg-[#F8F7FB]': !isCheckedExpress, 'border border-[#550086]': isCheckedExpress }">
                                     <label for="express-delivery" class="flex items-center w-full gap-2 ms-2 text-sm font-medium text-gray-900">
                                         <img :src="isCheckedExpress ? './image/expressIconWhite.svg' : './image/expressIcon.svg'" alt="car">
                                         <p>
@@ -381,16 +381,131 @@
                     </div>
                 </div>
 
-                <div class="h-48">
-                    <select x-data="districts" name="district" id="district">
-                        <option value="null">Selecteaz raionul</option>
-                        <template  x-for="district in districts" :key="district.id">
-                            
-                            <option x-text="district.name" :value="district.id"></option>
-
-                        </template>
-                    </select>
+                <div x-data="districts" class="h-48 flex  lg:justify-between sm:gap-4 pt-6 lg:flex-row sm:flex-col">
+                    <div id="slectDistricts" class="flex flex-col gap-2 lg:w-[40%]">
+                        <label for="selectDistricts">Raion</label>
+                        <select class="border rounded-xl p-4" x-model="selectedDistricts" @change="selectDistricts($event.target.value)">
+                            <option selected >Selectează un raion</option>
+                            <template x-for="district in districts" :key="district.id">
+                                <option x-text="district.name" :value="district.id"></option>
+                            </template>
+                        </select>
+                    </div>
+                    <div class="flex flex-col gap-2 lg:w-[40%]">
+                        <label for="slectVillage">Localitate</label>
+                        <select class="border rounded-xl p-4" name="slectVillage" id="slectVillage" x-model="selectedVillage" x-show="districts[selectedDistricts] && districts[selectedDistricts].villages.length > 0">
+                            <option x-show="!districts[selectedDistricts] || !districts[selectedDistricts].villages.length" selected >Selecteaza localitatea</option>
+                            <template x-for="village in districts[selectedDistricts].villages">
+                                <option x-text="village" :value="village"></option>
+                            </template>
+                        </select>
+                    </div>
                 </div>
+                <div class="flex flex-col gap-4">
+                    <div>
+                        <label for="street" class="block mb-2 text-base font-medium text-gray-900 ">Strada</label>
+                        <input type="text" id="streetname" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  placeholder="Introdu strada" required />
+                    </div>
+                    <div class="flex justify-between flex-col  lg:flex-row">
+                        <div class="lg:w-[45%]">
+                            <label for="building" class="block mb-2 text-base font-medium text-gray-900 ">Clădire</label>
+                            <input type="text" id="buildingNumber" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  placeholder="Nr. clădirii" required />
+                        </div>
+                        <div class="lg:w-[45%]">                            <label for="street" class="block mb-2 text-base font-medium text-gray-900 ">Etaj <span class="text-gray-400">(opțional)</span></label>
+                            <input type="text" id="streetname" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  placeholder="Nr. etaj" required />
+                        </div>
+                    </div>
+                    <div class="flex justify-between flex-col  lg:flex-row">
+                        <div class="lg:w-[45%]">
+                            <label for="apartament" class="block mb-2 text-base font-medium text-gray-900 ">Apartment <span class="text-gray-300">(opțional)</span></label>
+                            <input type="text" id="apartamentNumber" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  placeholder="Nr. apartament" required />
+                        </div>
+                        <div class="lg:w-[45%]">                        
+                            <label for="postalCod" class="block mb-2 text-base font-medium text-gray-900 ">Cod poștal</label>
+                            <input type="text" id="streetname" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  placeholder="Introdu codul" required />
+                        </div>
+                    </div>
+                    <div class="flex justify-between flex-col  lg:flex-row">
+                        <div class="lg:w-[45%]">
+                            <label for="staircase" class="block mb-2 text-base font-medium text-gray-900 ">Scară <span class="text-gray-400">(opțional)</span></label>
+                            <input type="text" id="staircaseNumber" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  placeholder="Nr. scării" required />
+                        </div>
+                        <div class="lg:w-[45%]">                          
+                            <label for="street" class="block mb-2 text-base font-medium text-gray-900 ">Interfon <span class="text-gray-400">(opțional)</span></label>
+                            <input type="text" id="streetname" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  placeholder="Introdu codul" required />
+                        </div>
+                    </div>
+                </div>
+
+                <div >
+                    <h5 class="font-medium text-base">Mod de livrare</h5>
+                    <ul id="payMethod" x-data="payMethod" class="text-sm font-medium text-gray-900 bg-white rounded-lg w-full flex flex-col gap-4" >
+                        <li @click="toggle('cashOrCard')">
+                            <div class="flex items-center px-2 py-3 bg-[#8F75C1] w-full rounded-3xl" :class="{ 'bg-[#F8F7FB]': !cashOrCard, 'border border-[#550086]': cashOrCard }">
+                                <label for="cashOrCard" class="flex items-center w-full gap-2 ms-2 text-sm font-medium text-gray-900">
+                                    <img :src="cashOrCard ? './image/cashIconWhite.svg' : './image/cashIcon.svg'" alt="wallet">
+                                    <p>
+                                        <span class="text-black font-bold" :class="{'text-white': cashOrCard}">Cash sau card</span><br>
+                                        <span :class="{'text-white': cashOrCard}">cu achitare la livrare</span>
+                                    </p>
+                                </label>
+                                <input id="cashOrCard" type="radio" value="cashOrCard" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2" @change="toggle('cashOrCard')">
+                            </div>
+                        </li>
+                        
+                        <li @click="toggle('transerBancar')">
+                            <div class="flex items-center px-2 py-3 bg-[#8F75C1] w-full rounded-3xl" :class="{ 'bg-[#F8F7FB]': !transerBancar, 'border border-[#550086]': transerBancar }">
+                                <label for="transerBancar" class="flex items-center w-full gap-2 ms-2 text-sm font-medium text-gray-900">
+                                    <img :src="transerBancar ? './image/bancIconWhite.svg' : './image/bancIcon.svg'" alt="bank">
+                                    <p>
+                                        <span class="text-black font-bold" :class="{'text-white': transerBancar}">Cash sau card</span><br>
+                                        <span :class="{'text-white': transerBancar}">cu achitare la livrare</span>
+                                    </p>
+                                </label>
+                                <input id="transerBancar" type="radio" value="transerBancar" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2" @change="toggle('transerBancar')">
+                            </div>
+                        </li>
+
+                        <li @click="toggle('onlinePayment')">
+                            <div class="flex items-center px-2 py-3 bg-[#8F75C1] w-full rounded-3xl" :class="{ 'bg-[#F8F7FB]': !onlinePayment, 'border border-[#550086]': onlinePayment }">
+                                <label for="onlinePayment" class="flex items-center w-full gap-2 ms-2 text-sm font-medium text-gray-900">
+                                    <img :src="onlinePayment ? './image/onlineIconWhite.svg' : './image/onlineIcon.svg'" alt="icon online">
+                                    <p>
+                                        <span class="text-black font-bold" :class="{'text-white': onlinePayment}">Achitare online</span><br>
+                                        <span :class="{'text-white': onlinePayment}">Visa sau Mastercard</span>
+                                    </p>
+                                </label>
+                                <input id="onlinePayment" type="radio" value="onlinePayment" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2" @change="toggle('onlinePayment')">
+                            </div>
+                        </li>    
+                        
+                        <li @click="toggle('terminal')">
+                            <div class="flex items-center px-2 py-3 bg-[#8F75C1] w-full rounded-3xl" :class="{ 'bg-[#F8F7FB]': !terminal, 'border border-[#550086]': terminal }">
+                                <label for="terminal" class="flex items-center w-full gap-2 ms-2 text-sm font-medium text-gray-900">
+                                    <img :src="terminal ? './image/terminalIconWhite.svg' : './image/terminalIcon.svg'" alt="icon terminal">
+                                    <p>
+                                        <span class="text-black font-bold" :class="{'text-white': terminal}">Terminal de plată</span><br>
+                                        <span :class="{'text-white': terminal}">QIWI, RunPay, etc.</span>
+                                    </p>
+                                </label>
+                                <input id="terminal" type="radio" value="terminal" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2" @change="toggle('terminal')">
+                            </div>
+                        </li>                          
+                    </ul>
+                </div>
+            </div>
+
+            <div class=" flex  gap-4 items-start">
+                <input type="checkbox" name="termsAndConditions" id="termsCheckBox">
+                <label class=" text-base font-medium" for="termsAndConditions">
+                    Plasând comanda, confirm că sunt de acord cu 
+                    <a class="underline font-bold" href="#">Termenii și condițiile</a> și cu <a class="underline font-bold" href="#">Politica de  confidențialitate</a>
+                </label>
+            </div>
+
+            <button type="submit" class="bg-black text-white px-8 py-6 rounded-[6rem] w-full">
+                Plasează comanda
+            </button>
 
             </form>
 

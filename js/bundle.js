@@ -3321,60 +3321,60 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   ];
   var districts = [
     {
-      id: 1,
+      id: 0,
       name: "Anenii Noi",
-      village: ["Anenii Noi", "Balmaz", "Bat\u0103r", "B\xEEc", "Bucov\u0103\u021B", "Butuceni", "Chetrosu", "C\xEErpe\u0219ti", "Cupcui", "F\xEErl\u0103deni", "Gura B\xEEcului", "Gura Galbenei", "H\u0103n\u0103\u0219enii Noi", "Holercani", "M\u0103l\u0103ie\u0219ti", "M\xEEndre\u0219ti", "Ro\u0219cani", "T\u0103t\u0103r\u0103uca Nou\u0103", "Zahorna"]
+      villages: ["Anenii Noi", "Balmaz", "Bat\u0103r", "B\xEEc", "Bucov\u0103\u021B", "Butuceni", "Chetrosu", "C\xEErpe\u0219ti", "Cupcui", "F\xEErl\u0103deni", "Gura B\xEEcului", "Gura Galbenei", "H\u0103n\u0103\u0219enii Noi", "Holercani", "M\u0103l\u0103ie\u0219ti", "M\xEEndre\u0219ti", "Ro\u0219cani", "T\u0103t\u0103r\u0103uca Nou\u0103", "Zahorna"]
     },
     {
-      id: 2,
+      id: 1,
       name: "B\u0103l\u021Bi",
       // Numele raionului următor
       villages: ["B\u0103l\u021Bi", "Vadul-Leca", "Slobozia-Mare", "Criste\u0219tii-Noi", "B\u0103l\u021Bata"]
       // Lista de sate pentru raionul "Bălți"
     },
     {
-      id: 3,
+      id: 2,
       name: "Briceni",
       villages: ["B\u0103l\u021Bata", "B\u0103ne\u0219ti", "Beleav\xEEn\u021Bi", "Bolohan", "Cerlina", "Chiurt", "Cotu\u0219ca", "Criste\u0219ti", "Cupcini", "Dumbr\u0103veni", "Dru\u021Ba", "Frumoasa", "G\u0103in\u0103u\u021Bi", "G\u0103v\u0103noasa", "Glodeni", "Goleni", "Gru\u0219eni", "H\u0103sn\u0103\u0219enii Mari", "Hlinaia", "Izvoare", "M\u0103rc\u0103u\u021Bi", "Mih\u0103l\u0103\u0219eni", "Mo\u0219ana", "N\u0103v\xEErne\u021B", "Pelinia", "Pope\u0219ti", "Porumbeni", "Sculeni", "Seli\u0219te", "\u0218endreni", "\u0218tiubeieni", "T\u0103t\u0103r\u0103uca Veche", "Tocuz", "Vorniceni", "Z\u0103icani"]
     },
     {
-      id: 4,
+      id: 3,
       name: "Cahul",
       cities: ["Cahul"],
       villages: ["Alexandru Ioan Cuza", "Aluatu", "Antone\u0219ti", "Baimaclia", "Br\xEEnza", "Bude\u0219ti", "Bulboaca", "Cahul", "Cahul", "C\xEErpe\u0219ti", "C\xEErpe\u0219ti", "Coliba\u0219i", "Doina", "Dolna", "Ferapontievca", "Frumu\u0219ica", "G\u0103v\u0103noasa", "Ghiliceni", "Ghidirim", "Hiliu\u021Bi", "Hirbovat", "Iujnoe", "Larga", "Lebedenco", "Leuntea", "Lopatna", "Manta", "M\xEEndra", "Munteni", "Plop", "Purcari", "Sarata", "S\u0103r\u0103tenii Noi", "Seli\u0219tea Nou\u0103", "T\u0103n\u0103tari", "Tartaul de Salcie", "Tartaul de Sus", "Ucrainca", "Ustia"]
     },
     {
-      id: 5,
+      id: 4,
       name: "C\u0103l\u0103ra\u0219i",
       cities: ["C\u0103l\u0103ra\u0219i"],
       villages: ["C\u0103l\u0103ra\u0219i", "Buda", "Frasin", "Ghiduleni", "Mihailovca", "Peresecina", "Pitu\u0219ca", "Sofia", "Sverida"]
     },
     {
-      id: 6,
+      id: 5,
       name: "C\u0103u\u0219eni",
       cities: ["C\u0103u\u0219eni"],
       villages: ["C\u0103u\u0219eni", "Alexanderfeld", "Baurci", "Be\u0219ghioz", "Borceag", "C\u0103u\u0219eni", "Cazaclia", "Cioc\xEElteni", "C\xEErn\u0103\u021Beni", "G\xEEsca", "Ialpug", "Lebedenco", "Manta", "Mihailovca", "Sofia", "Valcinet"]
     },
     {
-      id: 7,
+      id: 6,
       name: "Cimi\u0219lia",
       cities: ["Cimi\u0219lia"],
       villages: ["Cimi\u0219lia", "Caracl\u0103u", "Chirca", "Cotovscoe", "Cotul Morii", "Crihana Veche", "Cubolta", "Elizaveta", "Larga Nou\u0103", "Larga Veche", "M\u0103rcule\u0219ti", "Moscovei", "Munteni", "R\u0103denii Vechi", "R\u0103denii Vechi", "R\u0103sc\u0103ie\u021Bi", "Selemet", "Slobozia Nou\u0103", "Slobozia Veche", "Stolniceni", "\u0218erpeni", "Tocuz", "Tocuz"]
     },
     {
-      id: 8,
+      id: 7,
       name: "Criuleni",
       cities: ["Criuleni"],
       villages: ["Criuleni", "Bocancea", "Boghiceni", "Colosova", "Coste\u0219ti", "Co\u0219calia", "Cuhne\u0219ti", "Doltu", "Dumitreni", "Ghiduleni", "M\xE2ndre\u0219ti", "M\u0103r\u0103\u0219e\u0219ti", "M\u0103l\u0103ie\u0219ti", "Nistore\u0219ti", "Ratu\u0219", "S\u0103lcu\u021Ba", "S\u0103seni", "Vatra"]
     },
     {
-      id: 9,
+      id: 8,
       name: "Dondu\u0219eni",
       cities: ["Dondu\u0219eni"],
       villages: ["Dondu\u0219eni", "Boc\u0219a", "Br\u0103tu\u0219eni", "Chirilovca", "Chirilovca Nou\u0103", "Dobrogea Nou\u0103", "Dolna", "F\u0103g\u0103d\u0103u", "F\u0103g\u0103d\u0103u Nou", "F\xEEnt\xEEna Alb\u0103", "F\xEEnt\xEEna Nou\u0103", "F\xEEnt\xEEna Veche", "Ivanovca", "Ivanovca Nou\u0103", "Malaesti", "Mih\u0103l\u0103\u0219eni", "M\xEEndra", "Nihoreni", "\u021A\xEEmpul Nou", "\u021A\xEEmpul Vechi", "Valea Mare"]
     },
     {
-      id: 10,
+      id: 9,
       name: "Drochia",
       cities: ["Drochia"],
       villages: ["Drochia", "Borogani", "Cervencaia", "Coteala", "Cuhne\u0219tii Noi", "Danu", "Drujineni", "Drujinenii Noi", "Frasin", "Gordine\u0219ti", "Lazo", "Mih\u0103ileni", "Mih\u0103ilenii Noi", "Mole\u0219ti", "Ro\u0219ietici", "Ro\u0219ieticii Noi", "Sc\u0103ieni", "Seli\u0219te", "\u0218endreni", "\u0218uri", "\u021A\xEEra", "Ursari"]
@@ -3457,10 +3457,55 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
       }
     };
   };
-  module_default.data("districts", () => {
-    districts:
-      districts;
-  });
+  var districtData = () => {
+    return {
+      selectedDistricts: null,
+      selectedVillage: null,
+      districts,
+      selectDistricts(value) {
+        this.selectedDistricts = value;
+        console.log(districts[this.selectedDistricts]);
+      }
+    };
+  };
+  var payMethod = () => {
+    return {
+      cashOrCard: false,
+      transerBancar: false,
+      onlinePayment: false,
+      terminal: false,
+      toggle(type) {
+        switch (type) {
+          case "cashOrCard":
+            this.cashOrCard = true;
+            this.transerBancar = false;
+            this.onlinePayment = false;
+            this.terminal = false;
+            break;
+          case "transerBancar":
+            this.cashOrCard = false;
+            this.transerBancar = true;
+            this.onlinePayment = false;
+            this.terminal = false;
+            break;
+          case "onlinePayment":
+            this.cashOrCard = false;
+            this.transerBancar = false;
+            this.onlinePayment = true;
+            this.terminal = false;
+            break;
+          case "terminal":
+            this.cashOrCard = false;
+            this.transerBancar = false;
+            this.onlinePayment = false;
+            this.terminal = true;
+            break;
+        }
+      }
+    };
+  };
+  module_default.data("payMethod", payMethod);
+  module_default.data("districts", districtData);
   module_default.data("checkedBox", checkedBox);
   module_default.data("showModal", showModal);
   module_default.data("languageSelector", languageSelector);
